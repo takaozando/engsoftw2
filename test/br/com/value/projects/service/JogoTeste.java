@@ -1,8 +1,9 @@
 package br.com.value.projects.service;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
-
+import org.hamcrest.core.IsNot;
 import org.junit.Test;
 
 import br.com.value.projects.builder.CriadorDeJogo;
@@ -62,5 +63,15 @@ public class JogoTeste {
 		assertEquals(1, jogo.getResultados().size());
         assertEquals(500, jogo.getResultados().get(0).getMetrica(), 0.00001);
 		}
+		//Gustavo Hideo Takao
+		@Test
+		public void oJogadorDeveTerUmNome()
+		{
+			Jogo jogo = new Jogo("Jogo da velha");
+			Participante participante = new Participante("Jorginho");
 
+			jogo.anota(new Resultado(participante, 0));
+			assertNotEquals(null, jogo.getResultados().get(0).getParticipante().getNome());
+			assertNotEquals("", jogo.getResultados().get(0).getParticipante().getNome());
+		}
 }

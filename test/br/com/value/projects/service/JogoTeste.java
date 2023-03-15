@@ -13,6 +13,15 @@ import br.com.value.projects.dominio.Resultado;
 
 public class JogoTeste {
 	
+	@Test
+	public void novoJogoDeveTerDescricao() //cenário de teste Enrico Acquaviva
+	{
+		Jogo jogoSemNome = new Jogo("Futebol de formiga");
+
+		assertNotEquals(null, jogoSemNome.getDescricao());//validação para verificar se é possível criar um jogo sem nome
+		assertNotEquals("", jogoSemNome.getDescricao());
+	}
+	
 	//CenÃ¡rio de teste, um jogo de corrida com um unico participante
 	@Test
 	public void deveTerJogoComUnicoParticipante() {

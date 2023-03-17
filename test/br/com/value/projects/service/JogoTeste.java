@@ -72,6 +72,16 @@ public class JogoTeste {
 		assertEquals(1, jogo.getResultados().size());
         assertEquals(500, jogo.getResultados().get(0).getMetrica(), 0.00001);
 		}
+	public void naoDeveAceitarDoisJogadoresDeNomesIguais() {
+		Participante participante1 = new Participante(1, "Thiago Gomes");
+		Participante participante2 = new Participante(1, "Thiago Gomes");
+		Participante participante3 = new Participante(2, "Raissa Siqueira");
+		assertTrue(participante1.equals(participante2));
+		assertFalse(participante1.equals(participante3));
+		assertFalse(participante1.equals(null));
+		assertFalse(participante1.equals("Thiago Gomes"));
+	}
+	
 		
 		//Gustavo Hideo Takao
 		@Test

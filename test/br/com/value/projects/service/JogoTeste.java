@@ -109,5 +109,17 @@ public class JogoTeste {
 			assertFalse(participante1.equals(null));
 			assertFalse(participante1.equals("Thiago Gomes"));
 		}
+
+		//Lucas Fernando Basílio da Costa
+		@Test
+		public void OJogadorDeveTerUmResultado() {
+			Jogo jogo = new Jogo("Jogo de Poker");
+			Participante lucas = new Participante("Lucas");
+			jogo.anota(new Resultado(lucas, 500.0));
+			
+			
+			assertNotEquals(null, jogo.getResultados());
+			assertNotEquals("", jogo.getResultados());
+		}
 		
 }

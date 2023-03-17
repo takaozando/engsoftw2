@@ -35,6 +35,7 @@ public class Jogo {
 		return Collections.unmodifiableList(resultados);
 	}
 
-	
-	
+	public void limparResultados() {
+		this.resultados.clear();
+	}
 }

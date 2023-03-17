@@ -14,11 +14,11 @@ import br.com.value.projects.dominio.Resultado;
 public class JogoTeste {
 	
 	@Test
-	public void novoJogoDeveTerDescricao() //cenário de teste Enrico Acquaviva
+	public void novoJogoDeveTerDescricao() //cenï¿½rio de teste Enrico Acquaviva
 	{
 		Jogo jogoSemNome = new Jogo("Futebol de formiga");
 
-		assertNotEquals(null, jogoSemNome.getDescricao());//validação para verificar se é possível criar um jogo sem nome
+		assertNotEquals(null, jogoSemNome.getDescricao());//validaï¿½ï¿½o para verificar se ï¿½ possï¿½vel criar um jogo sem nome
 		assertNotEquals("", jogoSemNome.getDescricao());
 	}
 	
@@ -72,6 +72,7 @@ public class JogoTeste {
 		assertEquals(1, jogo.getResultados().size());
         assertEquals(500, jogo.getResultados().get(0).getMetrica(), 0.00001);
 		}
+		
 		//Gustavo Hideo Takao
 		@Test
 		public void oJogadorDeveTerUmNome()
@@ -82,5 +83,18 @@ public class JogoTeste {
 			jogo.anota(new Resultado(participante, 0));
 			assertNotEquals(null, jogo.getResultados().get(0).getParticipante().getNome());
 			assertNotEquals("", jogo.getResultados().get(0).getParticipante().getNome());
+		}
+
+		//VinÃ­cius LourenÃ§o Claro Cardoso
+		@Test
+		public void devePoderLimparOsResultados() {
+			Jogo jogo = new Jogo("Caï¿½a peï¿½as");
+			Participante leonardo = new Participante("Leonardo");
+			jogo.anota(new Resultado(leonardo, 500.0));
+
+			assertEquals(1, jogo.getResultados().size());
+			jogo.limparResultados();
+
+			assertEquals(0, jogo.getResultados().size());
 		}
 }
